@@ -1,4 +1,4 @@
-import 'package:schemani/src/rules/rule.dart';
+import 'package:schemani/src/schemas/description/parser.dart';
 import 'package:schemani/src/schemas/schema.dart';
 import 'package:schemani/src/validation_exception.dart';
 
@@ -27,8 +27,7 @@ class MapSchema<T extends Map<String, dynamic>> extends Schema<T> {
 
     schemas.forEach((key, schema) {
       try {
-        final value = values[key];
-        _getSchema(schema).validate(value);
+        SchemaDescriptionParser.parse(schema).validate(values[key]);
       } on ValidationException catch (exception) {
         exceptions[key] = exception;
       }
@@ -37,19 +36,5 @@ class MapSchema<T extends Map<String, dynamic>> extends Schema<T> {
     if (exceptions.isNotEmpty) {
       throw MapValidationException(exceptions);
     }
-  }
-
-  /// Pluck the schema by key.
-  Schema _getSchema(schema) {
-    if (schema is Schema) {
-      return schema;
-    }
-
-    // Shorthand <Rule>[...] for Schema(<Rule>[...]).
-    if (schema is List) {
-      return Schema(schema.whereType<Rule>().toList());
-    }
-
-    throw SchemaValidationError('Invalid MapSchema description');
   }
 }
