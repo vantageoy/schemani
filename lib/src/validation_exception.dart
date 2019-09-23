@@ -1,3 +1,4 @@
+/// Exception thrown when the value doesn't pass a validation test.
 abstract class ValidationException implements Exception {
   final String message;
 
