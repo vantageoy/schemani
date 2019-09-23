@@ -1,4 +1,4 @@
-import 'package:schemani/rule.dart';
+import 'package:schemani/rules/rule.dart';
 import 'package:schemani/validation_exception.dart';
 
 class RequiredValidationException extends ValidationException {

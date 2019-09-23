@@ -1,5 +1,4 @@
-import 'package:schemani/rule.dart';
-import 'package:schemani/schema_validation_error.dart';
+import 'package:schemani/rules/rule.dart';
 import 'package:schemani/schemas/schema.dart';
 import 'package:schemani/validation_exception.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:schemani/rule.dart';
+import 'package:schemani/rules/rule.dart';
 import 'package:schemani/schemas/schema.dart';
 import 'package:schemani/validation_exception.dart';
 

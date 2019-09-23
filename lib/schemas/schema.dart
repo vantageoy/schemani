@@ -1,4 +1,10 @@
-import 'package:schemani/rule.dart';
+import 'package:schemani/rules/rule.dart';
+
+class SchemaValidationError extends Error {
+  final String message;
+
+  SchemaValidationError(this.message);
+}
 
 class Schema<T> {
   final List<Rule<T>> rules;
