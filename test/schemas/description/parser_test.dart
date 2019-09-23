@@ -4,23 +4,24 @@ import 'package:schemani/src/schemas/description/parser.dart';
 import 'package:schemani/src/schemas/map.dart';
 import 'package:schemani/src/schemas/schema.dart';
 
-class TestRule extends Rule {
+class _TestRule extends Rule {
   @override
   void test(value) {}
 }
 
-class FooRule extends Rule<String> {
+class _FooRule extends Rule<String> {
   @override
   void test(value) {}
 }
 
 void main() {
+  /// Alias for shorter usage.
   const parse = SchemaDescriptionParser.parse;
 
   test('it should parse valid descriptions', () {
-    expect(parse(Schema([TestRule()])) is Schema, true);
-    expect(parse([TestRule()]) is Schema, true);
-    expect(parse([TestRule(), FooRule()]) is Schema, true);
+    expect(parse(Schema([_TestRule()])) is Schema, true);
+    expect(parse([_TestRule()]) is Schema, true);
+    expect(parse([_TestRule(), _FooRule()]) is Schema, true);
     expect(parse(<Rule>[]) is Schema, true);
     expect(parse([]) is Schema, true);
   });
@@ -28,7 +29,7 @@ void main() {
   test('it should not parse invalid descriptions', () {
     expect(() => parse(['foo']), throwsArgumentError);
     expect(() => parse(null), throwsArgumentError);
-    expect(() => parse(TestRule()), throwsArgumentError);
+    expect(() => parse(_TestRule()), throwsArgumentError);
   });
 
   test('it is not catched during Schema.validation', () {

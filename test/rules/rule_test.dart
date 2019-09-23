@@ -2,16 +2,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:schemani/src/rules/rule.dart';
 import 'package:schemani/src/validation_exception.dart';
 
-class TestValidationExpection extends ValidationException {
-  const TestValidationExpection();
+class _TestValidationExpection extends ValidationException {
+  const _TestValidationExpection();
 }
 
-class TestRule extends Rule<String> {
-  const TestRule();
+class _TestRule extends Rule<String> {
+  const _TestRule();
 
   test(value) {
     if (value == 'bar') {
-      throw const TestValidationExpection();
+      throw const _TestValidationExpection();
     }
   }
 }
@@ -19,13 +19,13 @@ class TestRule extends Rule<String> {
 void main() {
   test('it should not throw when the test passes', () {
     try {
-      TestRule().test('foo');
+      _TestRule().test('foo');
     } on ValidationException {
-      fail('TestRule should have not thrown an error');
+      fail('_TestRule should have not thrown an error');
     }
   });
 
   test('it should throw when the test does not pass', () {
-    expect(() => TestRule().test('bar'), throwsException);
+    expect(() => _TestRule().test('bar'), throwsException);
   });
 }

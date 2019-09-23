@@ -1,20 +1,20 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:schemani/src/validation_exception.dart';
 
-class DummyValidationException extends ValidationException {
-  const DummyValidationException();
+class _DummyValidationException extends ValidationException {
+  const _DummyValidationException();
 }
 
-class MessageValidationException extends ValidationException {
-  const MessageValidationException() : super('Foo');
+class _MessageValidationException extends ValidationException {
+  const _MessageValidationException() : super('Foo');
 }
 
 void main() {
   test('it has a default toString() method', () {
-    expect(DummyValidationException().toString(), 'DummyValidationException');
+    expect(_DummyValidationException().toString(), '_DummyValidationException');
   });
 
   test('it accepts a message attribute', () {
-    expect(MessageValidationException().toString(), 'Foo');
+    expect(_MessageValidationException().toString(), 'Foo');
   });
 }

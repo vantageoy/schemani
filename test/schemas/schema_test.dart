@@ -3,23 +3,23 @@ import 'package:schemani/src/rules/rule.dart';
 import 'package:schemani/src/schemas/schema.dart';
 import 'package:schemani/src/validation_exception.dart';
 
-class TestValidationExpection extends ValidationException {
-  const TestValidationExpection();
+class _TestValidationExpection extends ValidationException {
+  const _TestValidationExpection();
 }
 
-class TestRule extends Rule<String> {
-  const TestRule();
+class _TestRule extends Rule<String> {
+  const _TestRule();
 
   test(value) {
     if (value == 'bar') {
-      throw const TestValidationExpection();
+      throw const _TestValidationExpection();
     }
   }
 }
 
 void main() {
   test('it should test the given rules', () {
-    const schema = Schema([TestRule()]);
+    const schema = Schema([_TestRule()]);
 
     expect(() => schema.validate('bar'), throwsException);
 
