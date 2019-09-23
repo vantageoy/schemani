@@ -38,8 +38,7 @@ class MapSchema<T extends Map<String, dynamic>> extends Schema<T> {
 
     // Shorthand <Rule>[...] for Schema(<Rule>[...]).
     if (schema is List) {
-      // Loses the type after removing unnecessary cast.
-      return Schema((schema as List).whereType<Rule>().toList());
+      return Schema(schema.whereType<Rule>().toList());
     }
 
     throw SchemaValidationError('Invalid MapSchema description');
