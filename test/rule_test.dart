@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:schemani/rules/rule.dart';
-import 'package:schemani/validation_exception.dart';
+import 'package:schemani/src/rules/rule.dart';
+import 'package:schemani/src/validation_exception.dart';
 
 class TestValidationExpection extends ValidationException {
   const TestValidationExpection();

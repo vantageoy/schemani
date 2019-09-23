@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:schemani/rules/required.dart';
-import 'package:schemani/validation_exception.dart';
+import 'package:schemani/src/rules/required.dart';
+import 'package:schemani/src/validation_exception.dart';
 
 void main() {
   final rule = const Required();

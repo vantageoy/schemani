@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:schemani/rules/email.dart';
-import 'package:schemani/rules/required.dart';
-import 'package:schemani/rules/rule.dart';
-import 'package:schemani/schemas/map.dart';
-import 'package:schemani/schemas/schema.dart';
-import 'package:schemani/validation_exception.dart';
+import 'package:schemani/src/rules/email.dart';
+import 'package:schemani/src/rules/required.dart';
+import 'package:schemani/src/rules/rule.dart';
+import 'package:schemani/src/schemas/map.dart';
+import 'package:schemani/src/schemas/schema.dart';
+import 'package:schemani/src/validation_exception.dart';
 
 void main() {
   test('validates inner schemas', () {

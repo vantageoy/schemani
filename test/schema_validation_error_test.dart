@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:schemani/schemas/map.dart';
-import 'package:schemani/schemas/schema.dart';
+import 'package:schemani/src/schemas/map.dart';
+import 'package:schemani/src/schemas/schema.dart';
 
 void main() {
   test('it has a message field', () {

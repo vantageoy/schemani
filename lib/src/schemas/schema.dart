@@ -1,4 +1,4 @@
-import 'package:schemani/rules/rule.dart';
+import 'package:schemani/src/rules/rule.dart';
 
 class SchemaValidationError extends Error {
   final String message;

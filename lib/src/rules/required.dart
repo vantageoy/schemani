@@ -1,5 +1,5 @@
-import 'package:schemani/rules/rule.dart';
-import 'package:schemani/validation_exception.dart';
+import 'package:schemani/src/rules/rule.dart';
+import 'package:schemani/src/validation_exception.dart';
 
 class RequiredValidationException extends ValidationException {
   const RequiredValidationException() : super('Required field');
