@@ -56,3 +56,4 @@ MIT
     - References to another fields inside a rule
     - More basic rules (min, max, between, url, etc...)
 - i18n `ValidationException.toString()`
+- Benchmarking
