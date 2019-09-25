@@ -35,7 +35,7 @@ flutter: email => Invalid email address
 
 ### Usage with `formini`
 
-Use [formini-schemani](https://pub.dev/packages/formini-schemani) package for validating [formini](https://pub.dev/packages/formini) values using schemas. Or just copy the one simple file to your project.
+Use [schemani_formini](https://pub.dev/packages/schemani_formini) package for validating [formini](https://pub.dev/packages/formini) values using schemas. Or just copy the one simple file to your project.
 
 ## API reference
 
