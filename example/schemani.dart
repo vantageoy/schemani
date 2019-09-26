@@ -15,8 +15,17 @@ void main() {
       'email': 'foo example.org',
     });
   } on MapValidationException catch (e) {
-    e.exceptions.forEach((field, exception) {
-      print('$field => $exception');
-    });
+    handle(e);
   }
+}
+
+/// MapValidationExceptions handler.
+handle(MapValidationException e) {
+  e.exceptions.forEach((field, exception) {
+    if (exception is MapValidationException) {
+      return handle(exception);
+    }
+
+    print('$field => $exception');
+  });
 }
