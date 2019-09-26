@@ -1,4 +1,4 @@
-/// The contract for [Rule]s.
+/// The base Rule contract.
 abstract class Rule<T> {
   const Rule();
 
