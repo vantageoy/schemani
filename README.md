@@ -45,6 +45,8 @@ https://pub.dev/documentation/schemani
 
 Please open an issue or pull request in GitHub. Any help and feedback is much appreciated.
 
+`flutter pub pub run test`
+
 ## Licence
 
 MIT

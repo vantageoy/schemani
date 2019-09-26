@@ -1,8 +1,8 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:schemani/src/rules/rule.dart';
 import 'package:schemani/src/schemas/description/parser.dart';
 import 'package:schemani/src/schemas/map.dart';
 import 'package:schemani/src/schemas/schema.dart';
+import 'package:test/test.dart';
 
 class _TestRule extends Rule {
   @override

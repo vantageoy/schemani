@@ -1,6 +1,6 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:schemani/src/rules/email.dart';
 import 'package:schemani/src/validation_exception.dart';
+import 'package:test/test.dart';
 
 void main() {
   final rule = const Email();
