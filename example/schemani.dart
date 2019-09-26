@@ -10,10 +10,7 @@ void main() {
   });
 
   try {
-    userSchema.validate({
-      'name': null,
-      'email': 'foo example.org',
-    });
+    userSchema.validate({'name': null, 'email': 'example.org'});
   } on MapValidationException catch (e) {
     handle(e);
   }
