@@ -27,7 +27,9 @@ class MapSchema<T extends Map<String, dynamic>> extends Schema<T> {
 
     schemas.forEach((key, schema) {
       try {
-        SchemaDescriptionParser.parse(schema).validate(values[key]);
+        SchemaDescriptionParser.parse(schema).validate(
+          values != null && values.containsKey(key) ? values[key] : null,
+        );
       } on ValidationException catch (exception) {
         exceptions[key] = exception;
       }

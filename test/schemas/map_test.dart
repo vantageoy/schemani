@@ -49,4 +49,44 @@ void main() {
 
     fail('Expected required validation to throw.');
   });
+
+  test('nested map schemas', () {
+    const schema = MapSchema({
+      "email": [Required()],
+      "profile": MapSchema({
+        "name": MapSchema({
+          "first_name": [Required()],
+          "last_name": [Required()],
+        }),
+      }),
+    });
+
+    const invalidValues = <Map<String, dynamic>>[
+      {},
+      {'profile': null},
+      {'email': 'foo@example.org'},
+      {
+        'profile': {'name': null}
+      }
+    ];
+
+    for (final values in invalidValues) {
+      try {
+        schema.validate(values);
+      } on MapValidationException catch (e) {
+        expect(e.exceptions['profile'] is MapValidationException, true);
+        MapValidationException profile = e.exceptions['profile'];
+
+        expect(profile.exceptions['name'] is MapValidationException, true);
+        MapValidationException name = profile.exceptions['name'];
+
+        expect(
+            name.exceptions['first_name'] is RequiredValidationException, true);
+
+        continue;
+      }
+
+      fail('Expected validations to throw.');
+    }
+  });
 }
