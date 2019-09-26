@@ -2,7 +2,7 @@ name: schemani
 description: Simple and extensible data schema validation.
 version: 0.0.1-alpha.2
 author: Jari Pekkala <jari@vantage.fi>
-homepage: https://vantage.fi
+homepage: https://github.com/vantageoy/schemani
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
