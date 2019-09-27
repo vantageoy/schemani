@@ -6,4 +6,7 @@ abstract class Rule<T> {
   ///
   /// Throws an [ValidationException] when the value doesn't pass the test.
   void test(T value);
+
+  // maybe? would allow using functions as rules
+  // call(T value);
 }
