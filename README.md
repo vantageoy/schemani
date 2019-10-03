@@ -2,7 +2,7 @@
 
 Simple and extensible data schema validation for Dart and Flutter. If you know [Yup](https://github.com/jquense/yup) and [Laravel Validation](https://laravel.com/docs/validation#available-validation-rules) you will feel like home using this package.
 
-Please note that the schemani/formini packages are under development. There are still some issues to resolve before this has any help for real use cases. [#roadmap](#roadmap)
+Please note that the schemani/formini packages are under development. There are still some issues to resolve before this has any help for real use cases.
 
 ## Usage
 
@@ -50,12 +50,3 @@ Please open an issue or pull request in GitHub. Any help and feedback is much ap
 ## Licence
 
 MIT
-
-## Roadmap
-
-- `ListSchema`
-- Rules
-    - References to another fields inside a rule
-    - More basic rules (min, max, between, url, etc...)
-- i18n `ValidationException.toString()`
-- Benchmarking
