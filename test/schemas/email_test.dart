@@ -1,4 +1,4 @@
-import 'package:schemani/src/rules/email.dart';
+import 'package:schemani/src/schemas/email.dart';
 import 'package:schemani/src/validation_exception.dart';
 import 'package:test/test.dart';
 
@@ -19,7 +19,7 @@ void main() {
       // '1234567890123456789012345678901234567890123456789012345678901234+x@example.com', // (local part is longer than 64 characters)
     ].forEach((value) {
       expect(
-        () => rule.test(value),
+        () => rule.validate(value),
         throwsException,
         reason: 'Should have thrown an exception on invalid email $value',
       );
@@ -42,7 +42,7 @@ void main() {
       '"john..doe"@example.org', // (quoted double dot)
     ].forEach((value) {
       try {
-        rule.test(value);
+        rule.validate(value);
       } on ValidationException {
         fail('Should have passed a valid email $value');
       }

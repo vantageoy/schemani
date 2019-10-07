@@ -1,4 +1,5 @@
-import 'package:schemani/src/rules/rule.dart';
+import 'package:schemani/schemani.dart';
+import 'package:schemani/src/schema.dart';
 import 'package:schemani/src/validation_exception.dart';
 
 /// Thrown on missing or empty values that are required.
@@ -7,11 +8,11 @@ class RequiredValidationException extends ValidationException {
 }
 
 /// Validate value exists and isn't empty.
-class Required extends Rule {
+class Required<T extends dynamic> extends Schema<T> {
   const Required();
 
   @override
-  test(value) {
+  validate(value) {
     if (value == null) {
       throw const RequiredValidationException();
     }

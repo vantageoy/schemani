@@ -2,7 +2,7 @@ import 'package:schemani/src/schema.dart';
 import 'package:schemani/src/validation_exception.dart';
 
 /// Exception thrown when any of the inner schemas doesn't pass the validation test.
-class MapValidationException extends ValidationException {
+class MapShapeValidationException extends ValidationException {
   /// Contains a map of failed schema validation tests.
   ///
   /// The keys are the same as given schema map.
@@ -10,15 +10,15 @@ class MapValidationException extends ValidationException {
   /// Only contains pairs that did not pass the test.
   final Map<String, ValidationException> exceptions;
 
-  const MapValidationException(this.exceptions);
+  const MapShapeValidationException(this.exceptions);
 }
 
 /// Specify a schema for every value in the map.
-class MapSchema extends Schema<Map<String, Object>> {
+class Shape extends Schema<Map<String, Object>> {
   /// The key->schema mapping.
   final Map<String, Schema> _schemas;
 
-  const MapSchema(this._schemas);
+  const Shape(this._schemas);
 
   @override
   validate(values) {
@@ -35,7 +35,7 @@ class MapSchema extends Schema<Map<String, Object>> {
     });
 
     if (exceptions.isNotEmpty) {
-      throw MapValidationException(exceptions);
+      throw MapShapeValidationException(exceptions);
     }
   }
 

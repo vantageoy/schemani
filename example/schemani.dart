@@ -2,10 +2,10 @@ import 'package:schemani/schemani.dart';
 
 void main() {
   const userSchema = MapSchema({
-    'name': [Required()],
-    'email': [Required(), Email()],
+    'name': Schema([Required()]),
+    'email': Schema([Required(), Email()]),
     'profile': MapSchema({
-      'avatar': [Required()],
+      'avatar': Schema([Required()]),
     }),
   });
 

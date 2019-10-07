@@ -1,15 +1,14 @@
-import 'package:schemani/src/rules/email.dart';
-import 'package:schemani/src/rules/required.dart';
-import 'package:schemani/src/rules/rule.dart';
+import 'package:schemani/src/schema.dart';
+import 'package:schemani/src/schemas/email.dart';
 import 'package:schemani/src/schemas/map.dart';
-import 'package:schemani/src/schemas/schema.dart';
+import 'package:schemani/src/schemas/required.dart';
 import 'package:schemani/src/validation_exception.dart';
 import 'package:test/test.dart';
 
 void main() {
   test('validates inner schemas', () {
     const schema = MapSchema({
-      "email": Schema(<Rule>[Required(), Email()]),
+      "email": Schema([Required(), Email()]),
     });
 
     expect(() => schema.validate({}), throwsException);
@@ -24,7 +23,7 @@ void main() {
 
   test('allows array shorthand schema description', () {
     const schema = MapSchema({
-      "email": [Required(), Email()],
+      "email": Schema([Required(), Email()]),
     });
 
     expect(() => schema.validate({}), throwsException);
@@ -38,7 +37,7 @@ void main() {
 
   test('MapValidationException has validation errors in key->exception', () {
     const schema = MapSchema({
-      "email": [Required()],
+      "email": Schema([Required()]),
     });
 
     try {
@@ -52,11 +51,11 @@ void main() {
 
   test('nested map schemas', () {
     const schema = MapSchema({
-      "email": [Required()],
+      "email": Schema([Required()]),
       "profile": MapSchema({
         "name": MapSchema({
-          "first_name": [Required()],
-          "last_name": [Required()],
+          "first_name": Schema([Required()]),
+          "last_name": Schema([Required()]),
         }),
       }),
     });
