@@ -18,13 +18,15 @@ class MapSchema extends Schema<Map<String, Object>> {
   /// The key->schema mapping.
   final Map<String, Schema> _schemas;
 
-  const MapSchema(this._schemas);
+  Map<String, Schema> get shape => _schemas;
+
+  const MapSchema([this._schemas]);
 
   @override
   validate(values) {
     final exceptions = <String, ValidationException>{};
 
-    _schemas.forEach((key, schema) {
+    shape.forEach((key, schema) {
       try {
         schema.validate(
           values != null && values.containsKey(key) ? values[key] : null,
@@ -39,8 +41,8 @@ class MapSchema extends Schema<Map<String, Object>> {
     }
   }
 
-  Schema operator [](String field) => _schemas[field];
+  Schema operator [](String field) => shape[field];
 
   @override
-  String toString() => 'MapSchema${_schemas.keys}';
+  String toString() => 'MapSchema${shape.keys}';
 }

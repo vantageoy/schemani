@@ -12,4 +12,8 @@ class Schema<T> {
   void validate(T value) {
     _schemas.forEach((rule) => rule.validate(value));
   }
+
+  call(T value) {
+    return validate(value);
+  }
 }
