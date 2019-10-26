@@ -9,7 +9,7 @@ class _TestValidationExpection extends ValidationException {
 class _TestRule extends Schema<String> {
   const _TestRule();
 
-  test(value) {
+  validate(value) {
     if (value == 'bar') {
       throw const _TestValidationExpection();
     }
